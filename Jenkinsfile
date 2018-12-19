@@ -15,6 +15,11 @@ node{
        sh "${mvnHome}/bin/mvn sonar:sonar"
     }
   }
+   stage('Displaying password'){
+      withCredentials([string(credentialsId: 'my-pass', variable: 'PW1')]) {
+    echo "My password is '${PW1}'!"
+      }
+}
    //stage('Email Notification'){
     //  mail bcc: '', body: '''Hi Welcome to jenkins email alerts
     //  Thanks
