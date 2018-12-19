@@ -7,14 +7,14 @@ node{
       def mvnHome =  tool name: 'maven-3', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
-   stage('SonarQube analysis') {
+   /*stage('SonarQube analysis') {
     withSonarQubeEnv('sonar-6') {
       // requires SonarQube Scanner for Maven 3.2+
       //sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
        def mvnHome =  tool name: 'maven-3', type: 'maven'
        sh "${mvnHome}/bin/mvn sonar:sonar"
     }
-  }
+  }*/
    stage('Displaying password'){
       withCredentials([string(credentialsId: 'my-pass', variable: 'PW1')]) {
     echo "My password is '${PW1}'!"
